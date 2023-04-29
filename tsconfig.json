@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
-    "types": ["node", "vite/client"],
+    "types": ["jest","node", "vite/client"],
     "experimentalDecorators": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -45,7 +45,6 @@
     "**/*.spec.ts",
     "**/__mock__/**/*",
     "**/__mocks__/**/*"
-
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

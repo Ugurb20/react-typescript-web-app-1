@@ -1,2 +1,5 @@
 node_modules/
 dist/
+**/*.spec.ts
+**/__mock__/**/*
+**/__mocks__/**/*
