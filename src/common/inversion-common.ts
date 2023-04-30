@@ -18,6 +18,8 @@ import { AnalyticsTotalVisitsUseCase } from '@domain/usecases/analytics/total-vi
 import { AnalyticsYearlyAppointmentSummaryUseCase } from '@domain/usecases/analytics/yearly-appointment-summary';
 import { BranchRemoteDataSource } from '@data/datasources/branch/index.remote';
 import { BranchRemoteDataSourceImpl } from '@data/datasources/branch/index.remote.impl';
+import { BranchRepository } from '@domain/repositories/branch';
+import { BranchRepositoryImpl } from '@data/repositories/branch';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -67,6 +69,10 @@ export const containerBind = (container: Container) => {
 		container
 			.bind(BranchRemoteDataSource)
 			.to(BranchRemoteDataSourceImpl)
+			.inSingletonScope();
+		container
+			.bind(BranchRepository)
+			.to(BranchRepositoryImpl)
 			.inSingletonScope();
 	}
 };

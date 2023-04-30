@@ -3,6 +3,7 @@ import { BranchEntity } from '@domain/types/entities/branch';
 import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
+import { EmployeeEntity } from '@domain/types/entities/employee';
 
 @injectable()
 export abstract class BranchRepository {
@@ -16,7 +17,11 @@ export abstract class BranchRepository {
 
   abstract getAll(): Promise<BranchEntity[]>;
 
-  abstract daily(
+  abstract dailyInformation(
     request: BranchDailyInformationRequest
   ): Promise<BranchDailyInformationResponse>;
+
+  abstract dailyEmployees(
+    request: BranchDailyInformationRequest
+  ): Promise<EmployeeEntity[]>;
 }

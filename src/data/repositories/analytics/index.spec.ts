@@ -1,7 +1,6 @@
 import { getTestContainer } from '@common/inversion-container-test';
 import { Container } from 'inversify';
 import { AnalyticsRepository } from '@domain/repositories/analytics';
-import { AnalyticsRemoteDataSourceImpl } from '@data/datasources/analytics/index.remote.impl';
 import { AnalyticsRemoteDataSource } from '@data/datasources/analytics/index.remote';
 import { mock } from 'jest-mock-extended';
 import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
@@ -11,13 +10,11 @@ import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analyt
 describe('AnalyticsRepositoryImpl', () => {
 	let container: Container;
 	let analyticsRepository: AnalyticsRepository;
-	let analyticsRemoteDataSource: AnalyticsRemoteDataSourceImpl;
+	let analyticsRemoteDataSource: AnalyticsRemoteDataSource;
 	beforeAll(() => {
 		container = getTestContainer();
 		analyticsRepository = container.get(AnalyticsRepository);
-		analyticsRemoteDataSource = container.get(
-			AnalyticsRemoteDataSource
-		) as AnalyticsRemoteDataSourceImpl;
+		analyticsRemoteDataSource = container.get(AnalyticsRemoteDataSource);
 	});
 	beforeEach(() => {
 		jest.resetAllMocks();
