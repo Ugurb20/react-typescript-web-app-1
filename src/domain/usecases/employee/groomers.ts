@@ -5,14 +5,14 @@ import { EmployeeRepository } from '@domain/repositories/employee';
 
 @injectable()
 export class EmployeeGroomersUseCase
-  implements UseCase<void, Promise<EmployeeEntity[]>>
+implements UseCase<void, Promise<EmployeeEntity[]>>
 {
-  constructor(
+	constructor(
     @inject(EmployeeRepository)
     private readonly employerRepository: EmployeeRepository
-  ) {}
+	) {}
 
-  call(): Promise<EmployeeEntity[]> {
-    return this.employerRepository.groomers();
-  }
+	call(): Promise<EmployeeEntity[]> {
+		return this.employerRepository.groomers();
+	}
 }

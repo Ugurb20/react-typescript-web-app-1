@@ -6,13 +6,14 @@ import { EmployeeRepository } from '@domain/repositories/employee';
 
 @injectable()
 export class EmployeeUpdateUseCase
-  implements UseCase<EmployeeUpdateRequest, Promise<EmployeeEntity>>
+implements UseCase<EmployeeUpdateRequest, Promise<EmployeeEntity>>
 {
-  constructor(
+	constructor(
     @inject(EmployeeRepository)
     private readonly employeeRepository: EmployeeRepository
-  ) {}
-  call(request: EmployeeUpdateRequest): Promise<EmployeeEntity> {
-    return this.employeeRepository.update(request);
-  }
+	) {}
+
+	call(request: EmployeeUpdateRequest): Promise<EmployeeEntity> {
+		return this.employeeRepository.update(request);
+	}
 }

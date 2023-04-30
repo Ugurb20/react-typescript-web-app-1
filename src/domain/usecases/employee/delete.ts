@@ -4,11 +4,12 @@ import { UseCase } from '@common/use-case';
 
 @injectable()
 export class EmployeeDeleteUseCase implements UseCase<number, void> {
-  constructor(
+	constructor(
     @inject(EmployeeRepository)
     private readonly employeeRepository: EmployeeRepository
-  ) {}
-  call(id: number): Promise<void> {
-    return this.employeeRepository.delete(id);
-  }
+	) {}
+
+	call(id: number): Promise<void> {
+		return this.employeeRepository.delete(id);
+	}
 }
