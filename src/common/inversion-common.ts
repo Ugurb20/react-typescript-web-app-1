@@ -40,6 +40,11 @@ import { ProductRemoteDataSourceImpl } from '@data/datasources/product/index.rem
 import { ProductRemoteDataSource } from '@data/datasources/product/index.remote';
 import { ProductRepositoryImpl } from '@data/repositories/product';
 import { ProductRepository } from '@domain/repositories/product';
+import { ProductCreateUseCase } from '@domain/usecases/product/create';
+import { ProductDeleteUseCase } from '@domain/usecases/product/delete';
+import { ProductGetUseCase } from '@domain/usecases/product/get';
+import { ProductGetAllUseCase } from '@domain/usecases/product/get-all';
+import { ProductUpdateUseCase } from '@domain/usecases/product/update';
 
 export const containerBind = (container: Container) => {
   // Analytics
@@ -130,5 +135,10 @@ export const containerBind = (container: Container) => {
       .bind(ProductRepository)
       .to(ProductRepositoryImpl)
       .inSingletonScope();
+    container.bind(ProductCreateUseCase).toSelf().inSingletonScope();
+    container.bind(ProductDeleteUseCase).toSelf().inSingletonScope();
+    container.bind(ProductGetUseCase).toSelf().inSingletonScope();
+    container.bind(ProductGetAllUseCase).toSelf().inSingletonScope();
+    container.bind(ProductUpdateUseCase).toSelf().inSingletonScope();
   }
 };

@@ -6,28 +6,28 @@ import { ProductUpdateRequest } from '@domain/types/requests/product/update';
 
 @injectable()
 export class ProductRepositoryImpl implements ProductRepository {
-  constructor(
+	constructor(
     @inject(ProductRemoteDataSource)
     private readonly productRemoteDataSource: ProductRemoteDataSource
-  ) {}
+	) {}
 
-  all(): Promise<ProductEntity[]> {
-    return this.productRemoteDataSource.all();
-  }
+	all(): Promise<ProductEntity[]> {
+		return this.productRemoteDataSource.all();
+	}
 
-  create(): Promise<ProductEntity> {
-    return this.productRemoteDataSource.create();
-  }
+	create(): Promise<ProductEntity> {
+		return this.productRemoteDataSource.create();
+	}
 
-  delete(id: number): Promise<void> {
-    return this.productRemoteDataSource.delete(id);
-  }
+	delete(id: number): Promise<void> {
+		return this.productRemoteDataSource.delete(id);
+	}
 
-  get(id: number): Promise<ProductEntity> {
-    return this.productRemoteDataSource.get(id);
-  }
+	get(id: number): Promise<ProductEntity> {
+		return this.productRemoteDataSource.get(id);
+	}
 
-  update(request: ProductUpdateRequest): Promise<ProductEntity> {
-    return this.productRemoteDataSource.update(request);
-  }
+	update(request: ProductUpdateRequest): Promise<ProductEntity> {
+		return this.productRemoteDataSource.update(request);
+	}
 }
