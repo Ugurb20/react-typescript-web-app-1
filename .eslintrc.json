@@ -49,6 +49,7 @@
     "indent": ["error", "tab"],
     "lines-between-class-members": ["error", "always"],
     "sonarjs/cognitive-complexity": "error",
-    "sonarjs/no-identical-functions": "error"
+    "sonarjs/no-identical-functions": "error",
+    "no-mixed-spaces-and-tabs": "off"
   }
 }

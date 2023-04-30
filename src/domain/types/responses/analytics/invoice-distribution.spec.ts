@@ -1,4 +1,4 @@
-import { InvoiceDistributionResponse } from '@domain/responses/analytics/invoice-distribution';
+import { InvoiceDistributionResponse } from './invoice-distribution';
 
 describe('InvoiceDistribution', () => {
 	it('should be summed to 1.0', () => {

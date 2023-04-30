@@ -42,9 +42,6 @@
   "compileOnSave": true,
   "include": ["src","test"],
   "exclude": [
-    "**/*.spec.ts",
-    "**/__mock__/**/*",
-    "**/__mocks__/**/*"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
