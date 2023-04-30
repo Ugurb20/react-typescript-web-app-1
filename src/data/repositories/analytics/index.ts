@@ -1,6 +1,5 @@
 import { AnalyticsRepository } from '@domain/repositories/analytics';
 import { inject, injectable } from 'inversify';
-import { AnalyticsRemoteDataSourceImpl } from '@data/datasources/analytics/index.remote.impl';
 import { AnalyticsRemoteDataSource } from '@data/datasources/analytics/index.remote';
 import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
 import { ServiceDataResponse } from '@domain/types/responses/analytics/service-data';
@@ -10,7 +9,7 @@ import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analyt
 export class AnalyticsRepositoryImpl extends AnalyticsRepository {
 	constructor(
     @inject(AnalyticsRemoteDataSource)
-    private readonly analyticsRemoteDataSource: AnalyticsRemoteDataSourceImpl
+    private readonly analyticsRemoteDataSource: AnalyticsRemoteDataSource
 	) {
 		super();
 	}
