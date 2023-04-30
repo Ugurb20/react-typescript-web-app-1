@@ -16,6 +16,8 @@ import { AnalyticsInvoiceDistributionUseCase } from '@domain/usecases/analytics/
 import { AnalyticsNoShowRateUseCase } from '@domain/usecases/analytics/no-show-rate';
 import { AnalyticsTotalVisitsUseCase } from '@domain/usecases/analytics/total-visits';
 import { AnalyticsYearlyAppointmentSummaryUseCase } from '@domain/usecases/analytics/yearly-appointment-summary';
+import { BranchRemoteDataSource } from '@data/datasources/branch/index.remote';
+import { BranchRemoteDataSourceImpl } from '@data/datasources/branch/index.remote.impl';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -57,6 +59,14 @@ export const containerBind = (container: Container) => {
 		container
 			.bind<HttpClient>(HttpClientCachedSymbol)
 			.to(HttpClientCachedImpl)
+			.inSingletonScope();
+	}
+
+	// Branch
+	{
+		container
+			.bind(BranchRemoteDataSource)
+			.to(BranchRemoteDataSourceImpl)
 			.inSingletonScope();
 	}
 };
