@@ -31,6 +31,11 @@ import { EmployeeRemoteDataSource } from '@data/datasources/employee/index.remot
 import { EmployeeRemoteDataSourceImpl } from '@data/datasources/employee/index.remote.impl';
 import { EmployeeRepository } from '@domain/repositories/employee';
 import { EmployeeRepositoryImpl } from '@data/repositories/employee';
+import { EmployeeCreateUseCase } from '@domain/usecases/employee/create';
+import { EmployeeDeleteUseCase } from '@domain/usecases/employee/delete';
+import { EmployeeGetUseCase } from '@domain/usecases/employee/get';
+import { EmployeeGroomersUseCase } from '@domain/usecases/employee/groomers';
+import { EmployeeUpdateUseCase } from '@domain/usecases/employee/update';
 
 export const containerBind = (container: Container) => {
   // Analytics
@@ -104,5 +109,10 @@ export const containerBind = (container: Container) => {
       .bind(EmployeeRepository)
       .to(EmployeeRepositoryImpl)
       .inSingletonScope();
+    container.bind(EmployeeCreateUseCase).toSelf().inSingletonScope();
+    container.bind(EmployeeDeleteUseCase).toSelf().inSingletonScope();
+    container.bind(EmployeeGetUseCase).toSelf().inSingletonScope();
+    container.bind(EmployeeGroomersUseCase).toSelf().inSingletonScope();
+    container.bind(EmployeeUpdateUseCase).toSelf().inSingletonScope();
   }
 };
