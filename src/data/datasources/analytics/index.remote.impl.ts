@@ -1,9 +1,9 @@
 import { AnalyticsRemoteDataSource } from '@data/datasources/analytics/index.remote';
 import { HttpClient } from '@common/http-client';
 import { inject, injectable } from 'inversify';
-import { InvoiceDistributionResponse } from '@domain/responses/analytics/invoice-distribution';
-import { YearlyAppointmentSummaryResponse } from '@domain/responses/analytics/yearly-appointment-summary';
-import { ServiceDataResponse } from '@domain/responses/analytics/service-data';
+import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
+import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analytics/yearly-appointment-summary';
+import { ServiceDataResponse } from '@domain/types/responses/analytics/service-data';
 import { HttpClientCachedSymbol } from '@domain/types/symbols';
 
 @injectable()

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { YearlyAppointmentSummaryResponse } from '@domain/responses/analytics/yearly-appointment-summary';
+import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analytics/yearly-appointment-summary';
 import { MockGenerator } from '@test/__mocks__/types/mock-generator';
 
 export class YearlyAppointmentSummaryResponseMockGenerator extends MockGenerator<YearlyAppointmentSummaryResponse> {

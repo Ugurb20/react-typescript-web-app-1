@@ -1,5 +1,5 @@
 import { MockGenerator } from '@test/__mocks__/types/mock-generator';
-import { InvoiceDistributionResponse } from '@domain/responses/analytics/invoice-distribution';
+import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
 
 export class InvoiceDistributionResponseMockGenerator
   implements MockGenerator<InvoiceDistributionResponse>

@@ -1,4 +1,4 @@
-import { YearlyAppointmentSummaryResponse } from '@domain/responses/analytics/yearly-appointment-summary';
+import { YearlyAppointmentSummaryResponse } from './yearly-appointment-summary';
 
 describe('YearlyAppointmentSummaryResponse', () => {
 	it('should be defined.', () => {
