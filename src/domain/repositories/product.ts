@@ -3,7 +3,7 @@ import { ProductEntity } from '@domain/types/entities/product';
 import { ProductUpdateRequest } from '@domain/types/requests/product/update';
 
 @injectable()
-export abstract class ProductRemoteDataSource {
+export abstract class ProductRepository {
   abstract create(): Promise<ProductEntity>;
 
   abstract delete(id: number): Promise<void>;

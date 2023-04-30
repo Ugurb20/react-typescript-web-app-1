@@ -38,6 +38,8 @@ import { EmployeeGroomersUseCase } from '@domain/usecases/employee/groomers';
 import { EmployeeUpdateUseCase } from '@domain/usecases/employee/update';
 import { ProductRemoteDataSourceImpl } from '@data/datasources/product/index.remote.impl';
 import { ProductRemoteDataSource } from '@data/datasources/product/index.remote';
+import { ProductRepositoryImpl } from '@data/repositories/product';
+import { ProductRepository } from '@domain/repositories/product';
 
 export const containerBind = (container: Container) => {
   // Analytics
@@ -123,6 +125,10 @@ export const containerBind = (container: Container) => {
     container
       .bind(ProductRemoteDataSource)
       .to(ProductRemoteDataSourceImpl)
+      .inSingletonScope();
+    container
+      .bind(ProductRepository)
+      .to(ProductRepositoryImpl)
       .inSingletonScope();
   }
 };
