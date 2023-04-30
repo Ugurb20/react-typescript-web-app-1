@@ -1,6 +1,6 @@
 import { getTestContainer } from '@common/inversion-container-test';
 import { BranchEntity } from '@domain/types/entities/branch';
-import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
+import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 import { BranchUpdateUseCase } from '@domain/usecases/branch/update';
 import { BranchRepository } from '@domain/repositories/branch';
 import { Container } from 'inversify';
@@ -20,7 +20,7 @@ describe('BranchUpdateUseCase', () => {
 	it('should call branchRepository.update', async () => {
 		const spy = jest.spyOn(branchRepository, 'update');
 		spy.mockResolvedValue({} as BranchEntity);
-		const request = { id: 1, name: 'test' } as UpdateBranchRequest;
+		const request = { id: 1, name: 'test' } as BranchUpdateRequest;
 		await branchUpdateUseCase.call(request);
 		expect(spy).toHaveBeenCalled();
 		expect(spy).toHaveBeenCalledWith(request);

@@ -8,7 +8,7 @@ import { HttpClient } from '@common/http-client';
 import { BranchEntity } from '@domain/types/entities/branch';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
-import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
+import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 import { EmployeeEntity } from '@domain/types/entities/employee';
 
 @injectable()
@@ -60,10 +60,10 @@ export class BranchRemoteDataSourceImpl implements BranchRemoteDataSource {
 		return response.data;
 	}
 
-	async update(request: UpdateBranchRequest): Promise<BranchEntity> {
+	async update(request: BranchUpdateRequest): Promise<BranchEntity> {
 		const { id, ...body } = request;
 		const response = await this.httpClient.patch<
-      Partial<UpdateBranchRequest>,
+      Partial<BranchUpdateRequest>,
       BranchEntity
     >(`/api/branch/${id}`, body);
 		return response.data as BranchEntity;
