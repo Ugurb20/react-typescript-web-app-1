@@ -5,7 +5,7 @@ import { BranchEntity } from '@domain/types/entities/branch';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { EmployeeEntity } from '@domain/types/entities/employee';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
-import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
+import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 
 @injectable()
 export class BranchRepositoryImpl implements BranchRepository {
@@ -38,7 +38,7 @@ export class BranchRepositoryImpl implements BranchRepository {
 		return this.branchRemoteDataSource.getAll();
 	}
 
-	update(request: UpdateBranchRequest): Promise<BranchEntity> {
+	update(request: BranchUpdateRequest): Promise<BranchEntity> {
 		return this.branchRemoteDataSource.update(request);
 	}
 

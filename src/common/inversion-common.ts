@@ -27,6 +27,8 @@ import { BranchDeleteUseCase } from '@domain/usecases/branch/delete';
 import { BranchGetUseCase } from '@domain/usecases/branch/get';
 import { BranchGetAllUseCase } from '@domain/usecases/branch/get-all';
 import { BranchUpdateUseCase } from '@domain/usecases/branch/update';
+import { EmployeeRemoteDataSource } from '@data/datasources/employee/index.remote';
+import { EmployeeRemoteDataSourceImpl } from '@data/datasources/employee/index.remote.impl';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -88,5 +90,13 @@ export const containerBind = (container: Container) => {
 		container.bind(BranchGetUseCase).toSelf().inSingletonScope();
 		container.bind(BranchGetAllUseCase).toSelf().inSingletonScope();
 		container.bind(BranchUpdateUseCase).toSelf().inSingletonScope();
+	}
+
+	// Employee
+	{
+		container
+			.bind(EmployeeRemoteDataSource)
+			.to(EmployeeRemoteDataSourceImpl)
+			.inSingletonScope();
 	}
 };

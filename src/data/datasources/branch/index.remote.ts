@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 import { BranchEntity } from '@domain/types/entities/branch';
-import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
+import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
 import { EmployeeEntity } from '@domain/types/entities/employee';
@@ -9,7 +9,7 @@ import { EmployeeEntity } from '@domain/types/entities/employee';
 export abstract class BranchRemoteDataSource {
   abstract create(): Promise<BranchEntity>;
 
-  abstract update(request: UpdateBranchRequest): Promise<BranchEntity>;
+  abstract update(request: BranchUpdateRequest): Promise<BranchEntity>;
 
   abstract delete(id: number): Promise<void>;
 
