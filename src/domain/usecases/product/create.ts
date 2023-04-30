@@ -5,13 +5,14 @@ import { ProductRepository } from '@domain/repositories/product';
 
 @injectable()
 export class ProductCreateUseCase
-  implements UseCase<void, Promise<ProductEntity>>
+implements UseCase<void, Promise<ProductEntity>>
 {
-  constructor(
+	constructor(
     @inject(ProductRepository)
     private readonly productRepository: ProductRepository
-  ) {}
-  call(): Promise<ProductEntity> {
-    return this.productRepository.create();
-  }
+	) {}
+
+	call(): Promise<ProductEntity> {
+		return this.productRepository.create();
+	}
 }

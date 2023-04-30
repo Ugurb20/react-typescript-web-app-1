@@ -6,14 +6,14 @@ import { ProductRepository } from '@domain/repositories/product';
 
 @injectable()
 export class ProductUpdateUseCase
-  implements UseCase<ProductUpdateRequest, Promise<ProductEntity>>
+implements UseCase<ProductUpdateRequest, Promise<ProductEntity>>
 {
-  constructor(
+	constructor(
     @inject(ProductRepository)
     private readonly productRepository: ProductRepository
-  ) {}
+	) {}
 
-  call(request: ProductUpdateRequest): Promise<ProductEntity> {
-    return this.productRepository.update(request);
-  }
+	call(request: ProductUpdateRequest): Promise<ProductEntity> {
+		return this.productRepository.update(request);
+	}
 }
