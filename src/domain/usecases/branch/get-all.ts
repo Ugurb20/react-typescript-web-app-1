@@ -5,13 +5,14 @@ import { BranchRepository } from '@domain/repositories/branch';
 
 @injectable()
 export class BranchGetAllUseCase
-  implements UseCase<void, Promise<BranchEntity[]>>
+implements UseCase<void, Promise<BranchEntity[]>>
 {
-  constructor(
+	constructor(
     @inject(BranchRepository)
     private readonly branchRepository: BranchRepository
-  ) {}
-  call(): Promise<BranchEntity[]> {
-    return this.branchRepository.getAll();
-  }
+	) {}
+
+	call(): Promise<BranchEntity[]> {
+		return this.branchRepository.getAll();
+	}
 }

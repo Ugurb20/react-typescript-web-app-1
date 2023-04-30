@@ -6,14 +6,14 @@ import { UpdateBranchRequest } from '@domain/types/requests/branch/update';
 
 @injectable()
 export class BranchUpdateUseCase
-  implements UseCase<UpdateBranchRequest, Promise<BranchEntity>>
+implements UseCase<UpdateBranchRequest, Promise<BranchEntity>>
 {
-  constructor(
+	constructor(
     @inject(BranchRepository)
     private readonly branchRepository: BranchRepository
-  ) {}
+	) {}
 
-  call(request: UpdateBranchRequest): Promise<BranchEntity> {
-    return this.branchRepository.update(request);
-  }
+	call(request: UpdateBranchRequest): Promise<BranchEntity> {
+		return this.branchRepository.update(request);
+	}
 }

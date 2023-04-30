@@ -6,13 +6,14 @@ import { BranchRepository } from '@domain/repositories/branch';
 
 @injectable()
 export class BranchDailyEmployeesUseCase
-  implements UseCase<BranchDailyInformationRequest, Promise<EmployeeEntity[]>>
+implements UseCase<BranchDailyInformationRequest, Promise<EmployeeEntity[]>>
 {
-  constructor(
+	constructor(
     @inject(BranchRepository)
     private readonly branchRepository: BranchRepository
-  ) {}
-  call(request: BranchDailyInformationRequest): Promise<EmployeeEntity[]> {
-    return this.branchRepository.dailyEmployees(request);
-  }
+	) {}
+
+	call(request: BranchDailyInformationRequest): Promise<EmployeeEntity[]> {
+		return this.branchRepository.dailyEmployees(request);
+	}
 }
