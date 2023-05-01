@@ -2,9 +2,10 @@ import { injectable } from 'inversify';
 import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
 import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analytics/yearly-appointment-summary';
 import { ServiceDataResponse } from '@domain/types/responses/analytics/service-data';
+import { RemoteDataSource } from '@data/remote-data-source';
 
 @injectable()
-export abstract class AnalyticsRemoteDataSource {
+export abstract class AnalyticsRemoteDataSource extends RemoteDataSource {
   abstract averageServiceTime(petId: number): Promise<number>;
 
   abstract invoiceDistribution(
