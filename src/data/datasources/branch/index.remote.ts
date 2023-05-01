@@ -4,9 +4,10 @@ import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
 import { EmployeeEntity } from '@domain/types/entities/employee';
+import { RemoteDataSource } from '@data/remote-data-source';
 
 @injectable()
-export abstract class BranchRemoteDataSource {
+export abstract class BranchRemoteDataSource extends RemoteDataSource {
   abstract create(): Promise<BranchEntity>;
 
   abstract update(request: BranchUpdateRequest): Promise<BranchEntity>;

@@ -45,6 +45,14 @@ import { ProductDeleteUseCase } from '@domain/usecases/product/delete';
 import { ProductGetUseCase } from '@domain/usecases/product/get';
 import { ProductGetAllUseCase } from '@domain/usecases/product/get-all';
 import { ProductUpdateUseCase } from '@domain/usecases/product/update';
+import { AppointmentRemoteDataSource } from '@data/datasources/appointment/index.remote';
+import { AppointmentRemoteDataSourceImpl } from '@data/datasources/appointment/index.remote.impl';
+import { AppointmentRepository } from '@domain/repositories/appointment';
+import { AppointmentRepositoryImpl } from '@data/repositories/appointment';
+import { AppointmentGetUseCase } from '@domain/usecases/appointment/get';
+import { AppointmentCreateUseCase } from '@domain/usecases/appointment/create';
+import { AppointmentFilterUseCase } from '@domain/usecases/appointment/filter';
+import { AppointmentPatchUseCase } from '@domain/usecases/appointment/patch';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -140,5 +148,21 @@ export const containerBind = (container: Container) => {
 		container.bind(ProductGetUseCase).toSelf().inSingletonScope();
 		container.bind(ProductGetAllUseCase).toSelf().inSingletonScope();
 		container.bind(ProductUpdateUseCase).toSelf().inSingletonScope();
+	}
+
+	// Appointment
+	{
+		container
+			.bind(AppointmentRemoteDataSource)
+			.to(AppointmentRemoteDataSourceImpl)
+			.inSingletonScope();
+		container
+			.bind(AppointmentRepository)
+			.to(AppointmentRepositoryImpl)
+			.inSingletonScope();
+		container.bind(AppointmentGetUseCase).toSelf().inSingletonScope();
+		container.bind(AppointmentCreateUseCase).toSelf().inSingletonScope();
+		container.bind(AppointmentFilterUseCase).toSelf().inSingletonScope();
+		container.bind(AppointmentPatchUseCase).toSelf().inSingletonScope();
 	}
 };
