@@ -1,0 +1,30 @@
+@mixin base-typography {
+	font-size: 'Inter', 'sans-serif';
+	font-style: normal;
+	color: #000;
+}
+
+@mixin large-title {
+	@include base-typography;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+@mixin body {
+	@include base-typography;
+	font-size: 1em;
+	font-weight: 500;
+}
+
+@mixin body-light {
+	@include base-typography;
+	font-size: 1em;
+	color: #6b7280;
+	font-weight: 500;
+}
+
+@mixin body-bold {
+	@include base-typography;
+	font-size: 1em;
+	font-weight: 500;
+}
