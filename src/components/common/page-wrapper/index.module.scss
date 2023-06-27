@@ -1,0 +1,21 @@
+.pageWrapper {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+
+	.pageLeft {
+		overflow: hidden;
+		flex-grow: 1;
+		height: 100vh;
+		.pageNavigator {
+			width: 100%;
+			background-color: #fff;
+			border-bottom: 1px solid #e5e7eb;
+			padding: 1em 1em;
+
+			svg {
+				margin-left: 10px;
+			}
+		}
+	}
+}
