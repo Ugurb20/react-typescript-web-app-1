@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarDumb, { NavbarDumbProps } from './index.dumb';
-import HomeIcon from '../icons/navbar/home-icon';
+import { routeNames } from '@quicker/routes';
 
 const Navbar: React.FC = () => {
-	const [navExpanded, setNavExpanded] = React.useState(false);
+	const [navExpanded, setNavExpanded] = useState(false);
 
 	const props: NavbarDumbProps = {
 		storeName: 'Royal Oaks',
-		pages: [
-			{ name: 'Home', icon: HomeIcon },
-			{ name: 'Home', icon: HomeIcon },
-			{ name: 'Home', icon: HomeIcon },
-		],
+		pages: routeNames,
 		navExpanded,
 		setNavExpanded,
 	};
