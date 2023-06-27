@@ -1,10 +1,12 @@
 import React from 'react';
 import style from './inex.module.scss';
 import Avatar from 'react-avatar';
+import { Link } from 'react-router-dom';
 
 interface Page {
 	name: string;
 	icon: React.FC;
+	path: string;
 }
 
 export interface NavbarDumbProps {
@@ -39,8 +41,10 @@ const NavbarDumb: React.FC<NavbarDumbProps> = ({
 				{pages.map((page, ind) => {
 					return (
 						<div key={ind} className={style.pageItem}>
-							<page.icon />
-							<h3>{page.name}</h3>
+							<Link to={page.path}>
+								<page.icon />
+								<h3>{page.name}</h3>
+							</Link>
 						</div>
 					);
 				})}
@@ -49,4 +53,4 @@ const NavbarDumb: React.FC<NavbarDumbProps> = ({
 	);
 };
 
-export default NavbarDumb;
+export default NavbarDumb as React.FC<NavbarDumbProps>;
