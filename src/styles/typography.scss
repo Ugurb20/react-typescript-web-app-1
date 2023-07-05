@@ -1,5 +1,5 @@
 @mixin base-typography {
-	font-size: 'Inter', 'sans-serif';
+	font-family: 'Inter', 'sans-serif';
 	font-style: normal;
 	color: #000;
 }
@@ -8,6 +8,12 @@
 	@include base-typography;
 	font-size: 2em;
 	font-weight: 700;
+}
+
+@mixin small-title {
+	@include base-typography;
+	font-size: 1.2em;
+	font-weight: 600;
 }
 
 @mixin body {
