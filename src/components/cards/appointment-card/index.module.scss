@@ -1,0 +1,65 @@
+@import "@style/box-model/border-radius";
+@import "@style/box-model/padding";
+@import "@style/colors";
+
+.appointmentCard {
+  display:flex;
+  flex-direction: column;
+  border-radius: $border-radius-medium;
+  overflow: hidden;
+
+  &Header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius:inherit;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    align-items: center;
+    padding: $padding-xs $padding-s;
+    height: 32px;
+    & > * {
+      font-size: 12px;
+    }
+  }
+
+  &Body{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width:100%;
+    height: 100%;
+    border: 1px solid $color-gray-light;
+    border-radius: $border-radius-medium;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: $padding-xs $padding-s;
+    & > h6{
+      font-weight:200;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right:32px;
+      max-width:100%;
+    }
+    &DogName{
+      font-weight: 600;
+    }
+  }
+
+  &WithPointer{
+    cursor: pointer;
+  }
+
+  &Wrapper{
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+

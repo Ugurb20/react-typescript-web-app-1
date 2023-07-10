@@ -1,0 +1,10 @@
+@import "@style/box-model/border-radius";
+@import "@style/box-model/border";
+
+.noteTabs {
+	border: 1px solid black;
+	border-radius: $border-radius-medium;
+	& > div {
+		padding: 1em;
+	}
+}

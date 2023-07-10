@@ -8,3 +8,4 @@ require('reflect-metadata');
 
 require('@test/__mocks__/storage');
 require('fake-indexeddb/auto');
+require('@test/__mocks__/react-dnd');
