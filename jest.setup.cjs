@@ -1,6 +1,6 @@
 // Configure test environment
 require('dotenv').config({
-    path: '.env.test',
+	path: '.env.test',
 });
 
 // Required for inversify!

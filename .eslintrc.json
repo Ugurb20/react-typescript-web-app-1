@@ -13,13 +13,20 @@
     "es2021": true,
     "node": true
   },
-  "plugins": ["react", "@typescript-eslint","sort-class-members","unicorn","sonarjs"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "sort-class-members",
+    "unicorn",
+    "sonarjs"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:unicorn/recommended",
-    "plugin:sonarjs/recommended"
+    "plugin:sonarjs/recommended",
+    "plugin:storybook/recommended"
   ],
   "settings": {
     "react": {
@@ -46,8 +53,14 @@
     "unicorn/no-null": "off",
     "unicorn/prefer-add-event-listener": "off",
     "no-prototype-builtins": "off",
-    "indent": ["error", "tab"],
-    "lines-between-class-members": ["error", "always"],
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always"
+    ],
     "sonarjs/cognitive-complexity": "error",
     "sonarjs/no-identical-functions": "error",
     "no-mixed-spaces-and-tabs": "off"

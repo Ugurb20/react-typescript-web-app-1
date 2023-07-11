@@ -1,25 +1,32 @@
 import React from 'react';
 import { useState } from 'react';
 import './app.css';
+import PageWrapper from '@components/common/page-wrapper';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { routes } from './routes';
 
 function App() {
-	const [count, setCount] = useState(0);
 	return (
-		<div className="App">
-			<div></div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-				</button>
-				<p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-			</p>
-		</div>
+		<>
+			<BrowserRouter>
+				<Routes>
+					{routes.map((route, index) => (
+						<Route
+							key={index}
+							path={route.path}
+							element={
+								<PageWrapper>
+									<Suspense fallback={<div>Loading... //TODO SPINNER</div>}>
+										<route.component />
+									</Suspense>
+								</PageWrapper>
+							}
+						/>
+					))}
+				</Routes>
+			</BrowserRouter>
+		</>
 	);
 }
 

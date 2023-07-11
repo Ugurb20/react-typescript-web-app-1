@@ -1,0 +1,83 @@
+@import '../../../styles/typography.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	padding: 30px 20px;
+	width: 15vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: all 0.5s ease-in-out;
+}
+
+.navBar {
+	background-color: #fff;
+	h3 {
+		@include body-light;
+		font-weight: 500;
+	}
+
+	.navBarTop {
+		width: 100%;
+
+		h3 {
+			@include body-bold;
+			margin-top: 2px;
+		}
+
+		.light {
+			@include body-light;
+			margin-top: 15px;
+		}
+	}
+
+	.navBarBottom {
+		margin: 1em 0;
+		width: 100%;
+	}
+
+	&Collapse {
+		padding: 20px 4px;
+		width: 100px;
+		text-align: center;
+		.pageItem {
+			justify-content: center;
+			h3 {
+				display: none;
+			}
+			a {
+				justify-content: center;
+			}
+		}
+	}
+}
+
+.pageItem {
+	margin: 5px 0;
+	padding: 8px 4px;
+
+	width: 100%;
+	h3 {
+		padding-left: 8px;
+		transition: all 0.2s ease-in-out;
+	}
+	border-radius: 5px;
+	transition: all 0.2s ease-in-out;
+	a {
+		display: flex;
+		text-decoration: none;
+		align-items: center;
+	}
+}
+
+.pageItem:hover {
+	background: #f3f4f6;
+	cursor: pointer;
+	h3 {
+		@include body-bold;
+	}
+}

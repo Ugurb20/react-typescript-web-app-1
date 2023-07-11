@@ -6,9 +6,13 @@ import { Provider as InversionProvider } from 'inversify-react';
 import { getContainer } from '@common/inversion-container';
 
 ReactDOM.createRoot(document.querySelector('#root') as HTMLElement).render(
-	<InversionProvider container={getContainer()}>
+	<App />
+);
+
+{
+	/* <InversionProvider container={getContainer()}>
 		<React.StrictMode>
 			<App />
 		</React.StrictMode>
-	</InversionProvider>
-);
+	</InversionProvider> */
+}

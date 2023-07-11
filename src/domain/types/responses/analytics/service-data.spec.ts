@@ -1,6 +1,3 @@
-/*
-ServiceDataResponse
- */
 import { ServiceDataResponse } from './service-data';
 
 describe('ServiceDataResponse', () => {
