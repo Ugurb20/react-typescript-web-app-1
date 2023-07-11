@@ -1,0 +1,17 @@
+.hourColumn{
+  display: flex;
+  flex-direction: column;
+    flex: 1;
+  justify-content: start;
+  align-items: center;
+  padding-right :8px;
+}
+
+.hourElement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}

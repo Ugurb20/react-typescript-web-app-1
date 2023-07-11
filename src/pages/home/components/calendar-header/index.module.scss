@@ -1,0 +1,26 @@
+.calendarHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:48px;
+  align-items: center;
+
+  &Left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:1em;
+  }
+
+  &Center{
+
+  }
+
+  &Right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:1em;
+  }
+
+}

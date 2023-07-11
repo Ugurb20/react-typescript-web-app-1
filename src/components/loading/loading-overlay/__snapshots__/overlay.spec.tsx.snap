@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingOverlay should not render and return null. 1`] = `<div />`;
+
+exports[`LoadingOverlay should render 1`] = `
+<div>
+  <div
+    class="css-y6xuvu"
+  >
+    <div
+      data-testid="loading-overlay"
+    >
+      <span
+        class="css-liow4z"
+        style="display: inherit; position: relative; width: 150px; height: 150px;"
+      >
+        <span
+          style="position: absolute; height: 150px; width: 150px; background-color: rgb(0, 0, 0); border-radius: 100%; opacity: 0.6; top: 0px; left: 0px; animation-fill-mode: both; animation: react-spinners-BounceLoader-bounce 2.1s 1s infinite ease-in-out;"
+        />
+        <span
+          style="position: absolute; height: 150px; width: 150px; background-color: rgb(0, 0, 0); border-radius: 100%; opacity: 0.6; top: 0px; left: 0px; animation-fill-mode: both; animation: react-spinners-BounceLoader-bounce 2.1s 0s infinite ease-in-out;"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;

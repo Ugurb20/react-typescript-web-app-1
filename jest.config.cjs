@@ -6,6 +6,9 @@ module.exports = {
   ],
   collectCoverage: false,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-dnd)/)', // this is a regular expression that matches all node_modules folders except react-dnd
+  ],
   moduleNameMapper: {
   '\\.(scss|sass|css|less)$': 'identity-obj-proxy',
     '^@quicker/(.*)$': '<rootDir>/src/$1',
@@ -31,6 +34,7 @@ module.exports = {
 },
   transform: {
     '.+\\.(css|scss|png|jpg|svg)$': 'jest-transform-stub',
+    "^.+\\.jsx?$": "babel-jest"
   },
   setupFiles: ['./jest.setup.cjs'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],

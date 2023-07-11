@@ -1,0 +1,18 @@
+.ticketInformationHeader{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom: 16px;
+  &Left{
+    gap:8px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    & > svg{
+      width:1.5em;
+      height:1.5em;
+    }
+  }
+  border-bottom: 1px solid #CDCDD2;
+}

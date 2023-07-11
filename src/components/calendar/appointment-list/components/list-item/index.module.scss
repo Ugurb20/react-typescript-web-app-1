@@ -1,0 +1,38 @@
+.appointmentListItem{
+  display:flex;
+  flex-direction: row;
+  &Left{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 4px 12px;
+    font-weight: 600;
+    font-style: normal;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  }
+  &Right{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:8px;
+    align-items: center;
+
+  }
+}
+
+.specialHandling{
+  color: #FF0000;
+}
+
+.fab{
+  background-color:transparent !important;
+  box-shadow:none !important;
+  color:black !important;
+}

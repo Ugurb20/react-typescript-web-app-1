@@ -6,6 +6,7 @@ import { AppointmentEntity } from '@domain/types/entities/appointment';
 import { AppointmentCreateRequest } from '@domain/types/requests/appointment/create';
 import { AppointmentQueryRequest } from '@domain/types/requests/appointment/filter';
 import { PaginationResponse } from '@domain/types/common/pagination-response';
+import { DEFAULT_LIMIT, DEFAULT_OFFSET } from '@common/app.constants';
 
 @injectable()
 export class AppointmentRemoteDataSourceImpl
@@ -29,7 +30,13 @@ implements AppointmentRemoteDataSource
 		const response = await this.httpClient.get<
       PaginationResponse<AppointmentEntity>
     >('/api/schedule/appointments', {
-    	params: request,
+    	params: Object.assign(
+    		{
+    			limit: DEFAULT_LIMIT,
+    			offset: DEFAULT_OFFSET,
+    		},
+    		request
+    	),
     });
 		return response.data as PaginationResponse<AppointmentEntity>;
 	}

@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { EmployeeEntity } from '@domain/types/entities/employee';
 import { EmployeeUpdateRequest } from '@domain/types/requests/employee/update';
-import { RemoteDataSource } from '@data/remote-data-source';
+import { RemoteDataSource } from '@domain/interfaces/remote-data-source';
 
 @injectable()
 export abstract class EmployeeRemoteDataSource extends RemoteDataSource {

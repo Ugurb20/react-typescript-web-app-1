@@ -14,7 +14,7 @@ export default defineConfig({
       '@assets': '/src/assets',
       '@pages': '/src/pages',
       '@quicker': '/src',
-      '@styles': '/src/styles',
+      '@style': '/src/style',
       '@services': '/src/services',
       '@store': '/src/store',
       '@types': '/src/types',

@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { ProductEntity } from '@domain/types/entities/product';
 import { ProductUpdateRequest } from '@domain/types/requests/product/update';
-import { RemoteDataSource } from '@data/remote-data-source';
+import { RemoteDataSource } from '@domain/interfaces/remote-data-source';
 
 @injectable()
 export abstract class ProductRemoteDataSource extends RemoteDataSource {

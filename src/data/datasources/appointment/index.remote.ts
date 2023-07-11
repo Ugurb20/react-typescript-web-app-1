@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { RemoteDataSource } from '@data/remote-data-source';
+import { RemoteDataSource } from '@domain/interfaces/remote-data-source';
 import { AppointmentEntity } from '@domain/types/entities/appointment';
 import { AppointmentCreateRequest } from '@domain/types/requests/appointment/create';
 import { PaginationResponse } from '@domain/types/common/pagination-response';

@@ -4,7 +4,7 @@ import { BranchUpdateRequest } from '@domain/types/requests/branch/update';
 import { BranchDailyInformationRequest } from '@domain/types/requests/branch/daily';
 import { BranchDailyInformationResponse } from '@domain/types/responses/branch/daily-information';
 import { EmployeeEntity } from '@domain/types/entities/employee';
-import { RemoteDataSource } from '@data/remote-data-source';
+import { RemoteDataSource } from '@domain/interfaces/remote-data-source';
 
 @injectable()
 export abstract class BranchRemoteDataSource extends RemoteDataSource {

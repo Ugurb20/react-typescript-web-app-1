@@ -6,7 +6,7 @@ import { mock } from 'jest-mock-extended';
 import mockAxios from 'jest-mock-axios';
 import { AppointmentCreateRequest } from '@domain/types/requests/appointment/create';
 import { PaginationResponse } from '@domain/types/common/pagination-response';
-import { AppointmentQueryRequest } from '@domain/types/requests/appointment/filter';
+import { DEFAULT_LIMIT, DEFAULT_OFFSET } from '@common/app.constants';
 
 describe('AppointmentRemoteDataSourceImpl', () => {
   let container: Container;
@@ -33,12 +33,33 @@ describe('AppointmentRemoteDataSourceImpl', () => {
       undefined
     );
   });
-  it('should call filter http client', async () => {
+  it('should call filter http client. ', async () => {
     mockAxios.get.mockResolvedValueOnce({
       data: mock<PaginationResponse<AppointmentEntity>>(),
     });
     const appointmentFilterRequest = {
       branch: 1,
+    };
+    const response = await appointmentRemoteDataSource.query(
+      appointmentFilterRequest
+    );
+    expect(response).toBeDefined();
+    expect(mockAxios.get).toHaveBeenCalledWith('/api/schedule/appointments', {
+      params: {
+        ...appointmentFilterRequest,
+        limit: DEFAULT_LIMIT,
+        offset: DEFAULT_OFFSET,
+      },
+    });
+  });
+  it('should call filter with custom limit and offset http client. ', async () => {
+    mockAxios.get.mockResolvedValueOnce({
+      data: mock<PaginationResponse<AppointmentEntity>>(),
+    });
+    const appointmentFilterRequest = {
+      branch: 1,
+      limit: 100,
+      offset: 10,
     };
     const response = await appointmentRemoteDataSource.query(
       appointmentFilterRequest
