@@ -1,0 +1,19 @@
+.checkboxItem {
+  display: flex;
+  justify-content: flex-start;
+  gap: 9px;
+  align-items: center;
+
+  &Input{
+    border: 1px solid #D1D5DB;
+    height: 16px;
+    width: 16px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &Label {
+
+  }
+}
+
