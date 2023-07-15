@@ -2,7 +2,7 @@ import { injectable } from 'inversify';
 import { InvoiceDistributionResponse } from '@domain/types/responses/analytics/invoice-distribution';
 import { YearlyAppointmentSummaryResponse } from '@domain/types/responses/analytics/yearly-appointment-summary';
 import { ServiceDataResponse } from '@domain/types/responses/analytics/service-data';
-import { RemoteDataSource } from '@data/remote-data-source';
+import { RemoteDataSource } from '@domain/interfaces/remote-data-source';
 
 @injectable()
 export abstract class AnalyticsRemoteDataSource extends RemoteDataSource {
