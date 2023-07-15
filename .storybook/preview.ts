@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
-
+import 'reflect-metadata';
+import 'core-js-compat';
 const preview: Preview = {
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },

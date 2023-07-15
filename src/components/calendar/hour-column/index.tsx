@@ -17,7 +17,6 @@ export interface HourColumnDumbProps {
 export const HourElement: React.FC<HourElementProps> = ({
 	hour,
 	height,
-	width,
 }) => {
 	const styleObject = {
 		height,
@@ -28,6 +27,8 @@ export const HourElement: React.FC<HourElementProps> = ({
 		throw new Error('Invalid hour');
 	} else if (hour === 0 || hour === 24) {
 		hourText = '12AM';
+	} else if(hour === 12){
+		hourText = '12PM';
 	} else if (hour > 12) {
 		hourText = `${hour - 12}PM`;
 	} else {

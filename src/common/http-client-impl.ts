@@ -9,6 +9,7 @@ import { inject, injectable } from 'inversify';
 import { ApiUrl } from '@domain/types/common/api-url';
 import { HttpClient } from './http-client';
 import { ApiUrlSymbol } from '@domain/types/symbols';
+import { TOKEN_EXPIRATION_TIME } from '@common/constants';
 
 @injectable()
 export class HttpClientImpl implements HttpClient {
@@ -47,6 +48,12 @@ export class HttpClientImpl implements HttpClient {
 		);
 	}
 
+	isTokenExpired(): boolean {
+		const tokenExpiration = localStorage.getItem('tokenExpiration');
+		const now = Date.now();
+		return tokenExpiration ? now > Number(tokenExpiration) : true;
+	}
+
 	async login(email: string, password: string): Promise<void> {
 		try {
 			const response = await this.instance.post('/api/auth/customer/login', {
@@ -79,6 +86,7 @@ export class HttpClientImpl implements HttpClient {
 		this.authToken = token;
 		this.instance.defaults.headers.common['Authorization'] = `Token ${token}`;
 		localStorage.setItem('authToken', token);
+		localStorage.setItem('tokenExpiration', String(Date.now() + TOKEN_EXPIRATION_TIME));
 	}
 
 	public purgeAuthToken(): void {
