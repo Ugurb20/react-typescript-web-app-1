@@ -1,0 +1,143 @@
+@import '../../../styles/typography.scss';
+.filterWrapper {
+	display: flex;
+	flex-direction: column;
+	background-color: #f9fafb;
+	width: fit-content;
+	padding: 0.8em 1em;
+	padding-bottom: 1.5em;
+	transition: all 0.4s ease-in-out;
+
+	.filterName {
+		padding: 1em 0.8em;
+		background-color: #fff;
+		border-radius: 10px;
+		margin-bottom: 10px;
+		h2 {
+			@include small-title;
+			color: #6b7280;
+		}
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&:hover {
+			cursor: pointer;
+		}
+		.arrow {
+			transition: all 0.4s ease-in-out;
+			&Down {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	overflow: hidden;
+	.filterBox {
+		background-color: #fff;
+		border-radius: 10px;
+		width: 250px;
+		max-height: 250px;
+		overflow: hidden;
+		padding: 0.5em 0;
+		transition: all 0.4s ease-in-out;
+		&Collapse {
+			max-height: 0;
+			padding: 0;
+		}
+
+		.controlRow {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.5em 1.8em;
+			margin-bottom: 0.5em;
+			input {
+				background-color: #f9fafb;
+				border-radius: 8px;
+				border: 1px solid #e5e7eb;
+				text-align: center;
+				width: 40%;
+				padding: 0.5em 0;
+				outline: none; /* Remove outline */
+				-webkit-appearance: textfield; /* Remove spinner buttons on Webkit browsers */
+				-moz-appearance: textfield; /* Remove spinner buttons on Mozilla browsers */
+			}
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			/* Firefox */
+			input[type='number'] {
+				-moz-appearance: textfield;
+			}
+			.searchBtn {
+				background-color: #f9fafb;
+				border-radius: 8px;
+				border: 1px solid #e5e7eb;
+				text-align: center;
+				width: 15%;
+				padding: 0.5em 0;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		.filters {
+			display: flex;
+			flex-direction: column;
+			overflow-y: scroll;
+			max-height: 150px;
+			.range {
+				width: 100%;
+				position: relative;
+				padding: 0.5em 2em;
+				display: flex;
+				align-items: center;
+				@include body-bold;
+				font-weight: 400;
+				.checkBox {
+					display: block;
+					height: 1em;
+					width: 1em;
+					margin-right: 0.5em;
+					border-radius: 10px;
+					border: 2px solid #d1d5db;
+					transition: all 0.2s ease-in-out;
+					&Active {
+						background-color: rgba(34, 34, 34, 0.614);
+					}
+				}
+			}
+			.range:hover {
+				cursor: pointer;
+			}
+		}
+
+		/* Scrollbar CONFIG START */
+		.filters::-webkit-scrollbar {
+			width: 0.5em;
+			border-radius: 5px;
+		}
+
+		/* Track */
+		.filters::-webkit-scrollbar-track {
+			background: #f1f1f1;
+			border-radius: 5px;
+		}
+
+		/* Handle */
+		.filters::-webkit-scrollbar-thumb {
+			background: #888;
+			border-radius: 5px;
+		}
+
+		/* Handle on hover */
+		.filters::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
+		/* Scrollbar CONFIG END */
+	}
+}
