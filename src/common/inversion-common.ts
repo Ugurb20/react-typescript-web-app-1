@@ -56,6 +56,8 @@ import { AppointmentPatchUseCase } from '@domain/usecases/appointment/patch';
 import { HomePageService } from '@pages/home/index.service';
 import { LayoutAlgorithm } from '@services/layout-algorithm';
 import { DateUtilsService } from '@services/date-utils';
+import { ClientRemoteDataSourceImpl } from '@data/datasources/client/index.remote.impl';
+import { ClientRemoteDataSource } from '@data/datasources/client/index.remote';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -167,6 +169,11 @@ export const containerBind = (container: Container) => {
 		container.bind(AppointmentCreateUseCase).toSelf().inSingletonScope();
 		container.bind(AppointmentFilterUseCase).toSelf().inSingletonScope();
 		container.bind(AppointmentPatchUseCase).toSelf().inSingletonScope();
+	}
+
+	// Clients
+	{
+		container.bind(ClientRemoteDataSource).to(ClientRemoteDataSourceImpl).inSingletonScope();
 	}
 
 	// Services
