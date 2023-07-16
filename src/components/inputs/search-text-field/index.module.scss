@@ -1,0 +1,13 @@
+.container{
+  width:100%;
+  gap:8px;
+  display:flex;
+  flex-direction:row;
+  justify-content: start;
+  align-content: center;
+}
+.input{
+  appearance: none;
+  height:100%;
+  -webkit-appearance: none;
+}
