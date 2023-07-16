@@ -1,9 +1,13 @@
 import { HashedSessionStorage } from '@common/hashed-session-storage';
+import { Container } from 'inversify';
+import { getTestContainer } from '@common/inversion-container-test';
 
 describe('HashedSessionStorage', () => {
 	let hashedSessionStorage: HashedSessionStorage;
+	let container: Container;
 	beforeEach(() => {
-		hashedSessionStorage = new HashedSessionStorage();
+		container = getTestContainer();
+		hashedSessionStorage = container.get(HashedSessionStorage);
 	});
 	afterEach(() => {
 		hashedSessionStorage.clear();

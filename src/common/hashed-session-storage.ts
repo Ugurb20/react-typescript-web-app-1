@@ -1,5 +1,7 @@
 import {createHash} from "node:crypto";
+import { injectable } from 'inversify';
 
+@injectable()
 export class HashedSessionStorage {
 	private stringifySorted(obj: Record<string, any>): string {
 		const sortedObj: Record<string, any> = {};
@@ -18,14 +20,17 @@ export class HashedSessionStorage {
 		return hash.digest('hex');
 	}
 
-	public getItem(key: string | object): string | null {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	public getItem(key: string | object): any | null{
 		const hashedKey = this.generateHashKey(key);
-		return sessionStorage.getItem(hashedKey);
+		const item = sessionStorage.getItem(hashedKey);
+		return item ? JSON.parse(item) : null;
 	}
 
-	public setItem(key: string | object, value: string): void {
+ 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	public setItem(key: string | object, value: any): void {
 		const hashedKey = this.generateHashKey(key);
-		sessionStorage.setItem(hashedKey, value);
+		sessionStorage.setItem(hashedKey, JSON.stringify(value));
 	}
 
 	public removeItem(key: string | object): void {

@@ -58,6 +58,10 @@ import { LayoutAlgorithm } from '@services/layout-algorithm';
 import { DateUtilsService } from '@services/date-utils';
 import { ClientRemoteDataSourceImpl } from '@data/datasources/client/index.remote.impl';
 import { ClientRemoteDataSource } from '@data/datasources/client/index.remote';
+import { HashedSessionStorage } from '@common/hashed-session-storage';
+import { IndexedDbCache } from '@common/indexed-db';
+import { ClientLocalDataSource } from '@data/datasources/client/index.local';
+import { ClientLocalDataSourceImpl } from '@data/datasources/client/index.local.impl';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -174,6 +178,7 @@ export const containerBind = (container: Container) => {
 	// Clients
 	{
 		container.bind(ClientRemoteDataSource).to(ClientRemoteDataSourceImpl).inSingletonScope();
+		container.bind(ClientLocalDataSource).to(ClientLocalDataSourceImpl).inSingletonScope();
 	}
 
 	// Services
@@ -181,5 +186,11 @@ export const containerBind = (container: Container) => {
 		container.bind(HomePageService).toSelf().inSingletonScope();
 		container.bind(LayoutAlgorithm).toSelf().inSingletonScope();
 		container.bind(DateUtilsService).toSelf().inSingletonScope();
+	}
+
+	// Utils
+	{
+		container.bind(HashedSessionStorage).toSelf().inSingletonScope();
+		container.bind(IndexedDbCache).toSelf().inSingletonScope();
 	}
 };
