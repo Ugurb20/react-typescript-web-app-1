@@ -7,6 +7,6 @@ import { ClientListRequest } from '@domain/types/requests/client/list';
 @injectable()
 export abstract class ClientRemoteDataSource implements RemoteDataSource {
 
-	abstract listClients(params: ClientListRequest): Promise<CustomerEntity[]>;
+	abstract list(params: ClientListRequest): Promise<CustomerEntity[]>;
 
 }

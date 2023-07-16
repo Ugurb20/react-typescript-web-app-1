@@ -62,6 +62,8 @@ import { HashedSessionStorage } from '@common/hashed-session-storage';
 import { IndexedDbCache } from '@common/indexed-db';
 import { ClientLocalDataSource } from '@data/datasources/client/index.local';
 import { ClientLocalDataSourceImpl } from '@data/datasources/client/index.local.impl';
+import { ClientRepositoryImpl } from '@data/repositories/client';
+import { ClientRepository } from '@domain/repositories/client';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -179,6 +181,7 @@ export const containerBind = (container: Container) => {
 	{
 		container.bind(ClientRemoteDataSource).to(ClientRemoteDataSourceImpl).inSingletonScope();
 		container.bind(ClientLocalDataSource).to(ClientLocalDataSourceImpl).inSingletonScope();
+		container.bind(ClientRepository).to(ClientRepositoryImpl).inSingletonScope();
 	}
 
 	// Services

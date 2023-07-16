@@ -9,7 +9,7 @@ import { ClientListRequest } from '@domain/types/requests/client/list';
 export class ClientRemoteDataSourceImpl implements ClientRemoteDataSource {
 	constructor(@inject(HttpClientSymbol) private readonly httpClient: HttpClient) {}
 
-	async listClients(params: ClientListRequest): Promise<CustomerEntity[]> {
+	async list(params: ClientListRequest): Promise<CustomerEntity[]> {
 		const response = await this.httpClient.get('/api/scheduling/customers',{params});
 		return response.data;
 	}

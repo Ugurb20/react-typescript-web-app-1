@@ -23,12 +23,12 @@ describe('ClientRemoteDataSource', function () {
 
 	describe('listClients', () => {
 		it('should be implemented', () => {
-			expect(clientRemoteDataSource.listClients).toBeDefined();
+			expect(clientRemoteDataSource.list).toBeDefined();
 		});
 		it('should return a list of clients', async () => {
 			const data = generator.generateMany(20);
 			mockAxios.get.mockResolvedValueOnce({ data });
-			const response = await clientRemoteDataSource.listClients({});
+			const response = await clientRemoteDataSource.list({});
 			expect(response).toEqual(data);
 			expect(mockAxios.get).toHaveBeenCalledTimes(1);
 			expect(mockAxios.get).toHaveBeenCalledWith('/api/scheduling/customers', { params: {} });
