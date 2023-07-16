@@ -64,6 +64,7 @@ import { ClientLocalDataSource } from '@data/datasources/client/index.local';
 import { ClientLocalDataSourceImpl } from '@data/datasources/client/index.local.impl';
 import { ClientRepositoryImpl } from '@data/repositories/client';
 import { ClientRepository } from '@domain/repositories/client';
+import { ClientListUseCase } from '@domain/usecases/client/list';
 
 export const containerBind = (container: Container) => {
 	// Analytics
@@ -177,11 +178,12 @@ export const containerBind = (container: Container) => {
 		container.bind(AppointmentPatchUseCase).toSelf().inSingletonScope();
 	}
 
-	// Clients
+	// Client
 	{
 		container.bind(ClientRemoteDataSource).to(ClientRemoteDataSourceImpl).inSingletonScope();
 		container.bind(ClientLocalDataSource).to(ClientLocalDataSourceImpl).inSingletonScope();
 		container.bind(ClientRepository).to(ClientRepositoryImpl).inSingletonScope();
+		container.bind(ClientListUseCase).toSelf().inSingletonScope();
 	}
 
 	// Services
