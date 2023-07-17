@@ -37,14 +37,14 @@
       width: 100%;
 
       &Cell {
-        display: flex !important;
         width: 20%; // Match the percentage in the Header
         flex: 1;
-        overflow: hidden; // To allow text-overflow: ellipsis to work
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         align-items: center;
         justify-content: center;
+
       }
     }
   }
