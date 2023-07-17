@@ -17,7 +17,7 @@ import { PAGE_SIZE } from '@common/constants';
 
 export interface ClientsTableDumbProps {
 	clients: CustomerEntity[];
-	onPageChange: (page: number) => void;
+	onPageChange?: (page: number) => void;
 	onSort?: (sort: string) => void;
 	currentPage: number;
 	totalItems: number;
@@ -52,59 +52,57 @@ export const ClientsTableDumb: React.FC<ClientsTableDumbProps> = ({
 		handleClose();
 	};
 
-	return <div className={styles.clientsTable} data-testid={'clients-table'}>
-		<TableContainer>
-			<Table>
-				<TableHead>
-					<TableRow>
-						<TableCell>Client Name</TableCell>
-						<TableCell>Pets</TableCell>
-						<TableCell>Total Paid</TableCell>
-						<TableCell>Grooming Frequency</TableCell>
-						<TableCell>Last Service</TableCell>
-						<TableCell>Action</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{clients.map((client, index) => (
-						<TableRow data-testid={'clients-table-row'} key={client.id}>
-							<TableCell>{client.name}</TableCell>
-							<TableCell>{client.address}</TableCell>
-							<TableCell>{client.email}</TableCell>
-							<TableCell>{client.name}</TableCell>
-							<TableCell>{client.address}</TableCell>
-							<TableCell>
-								<IconButton aria-label="more" aria-controls="long-menu" aria-haspopup="true" onClick={handleClick}>
-									<MoreVertIcon data-testid={'clients-table-more-button'} />
-								</IconButton>
-								<Menu
-									data-testid={'clients-table-menu'}
-									anchorEl={anchorEl}
-									keepMounted
-									open={open}
-									onClose={handleClose}
-								>
-									<MenuItem data-testid={'clients-table-go-to-client-page-button'} onClick={() => handleGoToClientPage(client)}>
+	return <TableContainer className={styles.clientsTable}  data-testid={'clients-table'}>
+		<Table className={styles.clientsTable}>
+			<TableHead className={styles.clientsTableHeader}>
+				<TableRow className={styles.clientsTableBodyRow}>
+					<TableCell className={styles.clientsTableHeaderCell}>Client Name</TableCell>
+					<TableCell  className={styles.clientsTableHeaderCell}>Pets</TableCell>
+					<TableCell  className={styles.clientsTableHeaderCell}>Total Paid</TableCell>
+					<TableCell  className={styles.clientsTableHeaderCell}>Frequency</TableCell>
+					<TableCell  className={styles.clientsTableHeaderCell}>Last Service</TableCell>
+					<TableCell  className={styles.clientsTableHeaderCell}>Action</TableCell>
+				</TableRow>
+			</TableHead>
+			<TableBody className={styles.clientsTableBody}>
+				{clients.map((client, index) => (
+					<TableRow data-testid={'clients-table-row'} key={client.id} className={styles.clientsTableBodyRow}>
+						<TableCell className={styles.clientsTableBodyRowCell}>{client.name}</TableCell>
+						<TableCell className={styles.clientsTableBodyRowCell}>{client.address}</TableCell>
+						<TableCell className={styles.clientsTableBodyRowCell}>{client.email}</TableCell>
+						<TableCell className={styles.clientsTableBodyRowCell}>{client.name}</TableCell>
+						<TableCell className={styles.clientsTableBodyRowCell}>{client.address}</TableCell>
+						<TableCell className={styles.clientsTableBodyRowCell}>
+							<IconButton aria-label="more" aria-controls="long-menu" aria-haspopup="true" onClick={handleClick}>
+								<MoreVertIcon data-testid={'clients-table-more-button'} />
+							</IconButton>
+							<Menu
+								data-testid={'clients-table-menu'}
+								anchorEl={anchorEl}
+								keepMounted
+								open={open}
+								onClose={handleClose}
+							>
+								<MenuItem data-testid={'clients-table-go-to-client-page-button'} onClick={() => handleGoToClientPage(client)}>
 										Go to Client Page
-									</MenuItem>
-								</Menu>
-							</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
-				<TableFooter>
-					<TableRow>
-						<TablePagination
-							data-testid={'clients-table-pagination'}
-							colSpan={6}
-							count={totalItems}
-							rowsPerPage={PAGE_SIZE}
-							rowsPerPageOptions={[]}
-							onPageChange={handlePageChange}
-						  page={currentPage}/>
+								</MenuItem>
+							</Menu>
+						</TableCell>
 					</TableRow>
-				</TableFooter>
-			</Table>
-		</TableContainer>
-	</div>
+				))}
+			</TableBody>
+			<TableFooter className={styles.clientsTableFooter}>
+				<TableRow >
+					<TablePagination
+						data-testid={'clients-table-pagination'}
+						colSpan={6}
+						count={totalItems}
+						rowsPerPage={PAGE_SIZE}
+						rowsPerPageOptions={[]}
+						onPageChange={handlePageChange}
+						  page={currentPage}/>
+				</TableRow>
+			</TableFooter>
+		</Table>
+	</TableContainer>
 }

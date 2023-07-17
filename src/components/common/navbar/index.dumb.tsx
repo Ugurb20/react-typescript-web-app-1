@@ -2,19 +2,14 @@ import React from 'react';
 import style from './inex.module.scss';
 import Avatar from 'react-avatar';
 import { Link } from 'react-router-dom';
-
-interface Page {
-	name: string;
-	icon: React.FC;
-	path: string;
-}
+import { RouteEntity } from '@quicker/routes';
 
 export interface NavbarDumbProps {
 	userImg?: string;
 	storeName: string;
 	activePage?: number;
 	setActivePage?: (page: number) => void;
-	pages: Page[];
+	pages: RouteEntity[];
 	navExpanded: boolean;
 	setNavExpanded: (expanded: boolean) => void;
 }
@@ -39,6 +34,7 @@ const NavbarDumb: React.FC<NavbarDumbProps> = ({
 			</div>
 			<div className={style.navBarBottom}>
 				{pages.map((page, ind) => {
+					// @ts-ignore
 					return (
 						<div key={ind} className={style.pageItem}>
 							<Link to={page.path}>

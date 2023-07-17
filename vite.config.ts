@@ -24,4 +24,9 @@ export default defineConfig({
       '@common': '/src/common',
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['core-js-pure/stable/instance/filter.js'],
+    },
+  },
 });

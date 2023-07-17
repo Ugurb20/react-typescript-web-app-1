@@ -1,5 +1,5 @@
 {
-  "name": "quicker-employee-pp",
+  "name": "quicker-employee-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -34,6 +34,7 @@
     "@mui/material": "^5.13.5",
     "axios": "^1.4.0",
     "axios-cache-adapter": "^2.7.3",
+    "core-js-pure": "^3.31.1",
     "crypto": "^1.0.1",
     "inversify": "^6.0.1",
     "inversify-react": "^1.1.0",

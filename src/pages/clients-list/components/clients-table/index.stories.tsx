@@ -1,4 +1,5 @@
-import {ClientsTableDumb,ClientsTableDumbProps} from '@pages/clients-list/components/clients-table/index.dumb';
+import React from 'react';
+import { ClientsTableDumb,ClientsTableDumbProps } from '@pages/clients-list/components/clients-table/index.dumb';
 import { CustomerMockGenerator } from '@test/__mocks__/types/entities/customer';
 import { PAGE_SIZE } from '@common/constants';
 
@@ -13,7 +14,7 @@ const generator = new CustomerMockGenerator();
 const Template = (args: ClientsTableDumbProps) => <ClientsTableDumb {...args} />;
 const clients = generator.generateMany(30);
 export const Default = Template.bind({});
-Default.args = {
+Default.arguments = {
 	clients: clients.slice(0, PAGE_SIZE),
 	onPageChange: () => {console.log('onPageChange')} ,
 	onRowClick: () => {console.log('onRowClick')},

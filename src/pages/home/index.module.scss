@@ -5,6 +5,7 @@
   width: 100vw;
   display: grid;
   grid-template-rows: 40px 1fr;
+  overflow: hidden;
   grid-template-columns: 72px 1fr;
 }
 

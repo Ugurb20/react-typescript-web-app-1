@@ -1,3 +1,51 @@
 .clientsTable {
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 
+
+
+  &Header,
+  &Footer {
+    flex-direction: row;
+    background-color: gainsboro;
+    width:100%;
+    justify-content: start;
+  }
+  &Header{
+    &Cell {
+      width: 20%; // Adjust as needed for the number of columns
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+        font-weight: 900;
+
+    }
+  }
+
+
+
+  &Body {
+    overflow-y: auto;
+    flex: 1;
+
+    &Row {
+      display: flex !important;
+      height: 50px; // this can be adjusted as per requirement
+      width: 100%;
+
+      &Cell {
+        display: flex !important;
+        width: 20%; // Match the percentage in the Header
+        flex: 1;
+        overflow: hidden; // To allow text-overflow: ellipsis to work
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }
